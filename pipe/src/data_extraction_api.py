@@ -24,4 +24,4 @@ def get_data():
 
 # Run the Flask application
 if __name__ == '__main__':
-    run(app, port=8000, host='127.0.0.1')
+    run(app, port=8000, host='127.0.0.1', log_level='info')

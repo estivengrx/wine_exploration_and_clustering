@@ -1,4 +1,10 @@
-uvicorn
 fastapi
-requests
+numpy
+matplotlib
 pandas
+requests
+scikit-learn
+scipy
+seaborn
+uvicorn
+ydata-profiling

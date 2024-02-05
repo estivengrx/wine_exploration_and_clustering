@@ -13,6 +13,32 @@ from io import StringIO
 from contextlib import redirect_stdout
 
 app = FastAPI()
+@app.get("/clustering-analysis")
+def perform_clustering_analysis():
+    # Retrieve data from the API
+    data = retrieve_data()
+
+    # Perform data preprocessing
+    data_scaled, data_transformed = preprocess_data(data)
+
+    # Hyperparameter tuning
+    best_params = tune_hyperparameters(data_scaled)
+
+    # Model training
+    pred_y, score, inertia_score = train_model(data_scaled, best_params)
+
+    # Data visualization
+    cluster_means = visualize_data(data_transformed, pred_y)
+
+    # Create a dictionary with all the results
+    clustering_results = {
+        "best_params": best_params,
+        "silhouette_score": round(score, 2),
+        "inertia_score": round(inertia_score, 2),
+        "cluster_means": cluster_means.to_dict()
+    }
+
+    return clustering_results
 
 def retrieve_data():
     data = data_extraction_api.get_data()
@@ -75,33 +101,6 @@ def visualize_data(data_transformed, pred_y):
     plt.show()
 
     return cluster_means
-
-@app.get("/clustering-analysis")
-def perform_clustering_analysis():
-    # Retrieve data from the API
-    data = retrieve_data()
-
-    # Perform data preprocessing
-    data_scaled, data_transformed = preprocess_data(data)
-
-    # Hyperparameter tuning
-    best_params = tune_hyperparameters(data_scaled)
-
-    # Model training
-    pred_y, score, inertia_score = train_model(data_scaled, best_params)
-
-    # Data visualization
-    cluster_means = visualize_data(data_transformed, pred_y)
-
-    # Create a dictionary with all the results
-    clustering_results = {
-        "best_params": best_params,
-        "silhouette_score": round(score, 2),
-        "inertia_score": round(inertia_score, 2),
-        "cluster_means": cluster_means.to_dict()
-    }
-
-    return clustering_results
 
 # Entry point of the script
 if __name__ == "__main__":
