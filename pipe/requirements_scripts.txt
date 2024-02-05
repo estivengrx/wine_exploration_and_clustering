@@ -1,0 +1,9 @@
+fastapi
+numpy
+pandas
+requests
+scikit-learn
+uvicorn
+ydata-profiling
+ipython
+ipywidgets
