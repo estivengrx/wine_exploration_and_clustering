@@ -318,7 +318,7 @@ def cluster_analysis(data_transformed, pred_y):
     return cluster_means, cluster_std, cluster_sizes
 
 @app.get("/clustering-analysis")
-def perform_clustering_analysis():
+def perform_clustering_analysis() -> dict:
     """
     FastAPI route to perform clustering analysis.
 
@@ -339,7 +339,7 @@ def perform_clustering_analysis():
     # Perform cluster analysis
     cluster_means, cluster_std, cluster_sizes = cluster_analysis(data_transformed, pred_y)
 
-    # Create a dictionary with all the results
+    # Dictionary with all the results
     clustering_results = {
         "The optimal number of clusters have been set to 3": "It was selected through the elbow method and silhouette score visualizations.",
         "Best parameters": best_params,
@@ -354,4 +354,4 @@ def perform_clustering_analysis():
 
 # Run the Flask application
 if __name__ == '__main__':
-    run(app, port=8000, host='127.0.0.1', log_level='info')
+    run(app, port=8000, host='0.0.0.0', log_level='info')
