@@ -182,15 +182,35 @@ def data_exploration_and_analysis(data: pd.DataFrame) -> dict:
         'Statistics data without outliers': calculate_stats(remove_outliers(data))
     }
 
+    # Column explanations
+    column_explanations = {
+    "Alcohol": "This represents the alcohol content in the wine. It is usually measured in percentage by volume.",
+    "Malic_Acid": "Malic acid is one of the primary acids found in wine grapes. It contributes to the sour or tart taste of a wine.",
+    "Ash": "Ash refers to the inorganic matter that remains after evaporation and incineration. It's a measure of the total amount of minerals within the wine.",
+    "Ash_Alcanity": "Alkalinity of ash is the measure of the ability of a wine to neutralize acid. Higher alkalinity typically results in a wine with a lower pH.",
+    "Magnesium": "This is the amount of magnesium in the wine. Magnesium can affect the taste and color of wine.",
+    "Total_Phenols": "Phenols in wine include a large group of several hundred chemical compounds that affect the taste, color, and mouthfeel of wine.",
+    "Flavanoids": "These are a type of phenol. Flavonoids include anthocyanins and tannins which contribute to the color and the mouthfeel of the wine.",
+    "Nonflavanoid_Phenols": "These are phenols that are not flavonoids. They also contribute to the taste, color, and mouthfeel of wine.",
+    "Proanthocyanins": "Proanthocyanidins are a class of flavonoids. They contribute to the bitterness, astringency, and color stability of the wine.",
+    "Color_Intensity": "This is a visual property of wines that can give an indication of age, grape variety, and amount of skin contact during winemaking.",
+    "Hue": "In the context of wine, hue refers to the color of the wine when viewed from the top and can give an indication of age or grape variety.",
+    "OD280": "This is a measurement of the wine's absorbance at 280 nm. It is often used as a measure of the total protein concentration in the wine.",
+    "Proline": "Proline is an amino acid that has been found to be associated with the color and flavor stability of a wine."
+    }
+    
+
     # Organize results in a dictionary
     exploration_results = {
-        "Dimensions of the orginal dataset": dimensions,
+        "Columns names": list(data.columns),
+        "Explanation of all the columns in the dataset": column_explanations,
+        "Dimensions of the original dataset": dimensions,
         "Total number of null data": null_data,
         "Total number of duplicated data": duplicated_data,
         "Total number of infinite rows, (can be considered null)": inf_rows,
         "Total number of infinite columns, (can be considered null)": inf_columns,
         "Total number of rows deleted due to outliers": rows_deleted,
-        "Percenatge of rows deleted due to outliers": percentage_rows_deleted,
+        "Percentage of rows deleted due to outliers": percentage_rows_deleted,
         "Greatest relationships between variables, (more than 0.7 in the spearman method)": greatest_relationships_variables,
         "Descriptive statistics of the data": data_description,
         "Statistics and distribution analysis to eliminate outliers": stats_data
