@@ -1,15 +1,6 @@
 # Wine exploration and clustering: Unveiling the stories within Italian wines
-Determining workspace structure
 
-Deciding which workspace information to collect
-
-Gathering workspace info
-
-Sure, here's a basic structure for your README.md file:
-
-# Wine Exploration and Clustering
-
-This project aims to explore and cluster Italian wines based on their characteristics.
+This project aims to explore and cluster Italian wines based on their characteristics using a clustering algorithm KMeans and data exploration within the notebooks folder in the `main.ipynb`.
 
 ## Project Structure
 
@@ -66,8 +57,8 @@ The dependencies for the scripts are listed in `requirements_scripts.txt` locate
 pip install -r requirements_scripts.txt
 ```
 
-## Additional Information
+# Additional Information
 
-For more detailed information about the project, refer to the `main.ipynb` and `model_tests.ipynb` notebooks located in the `notebooks` directory.
+For more detailed information about the project, graphs and all the analysis made, refer to the `main.ipynb` notebook located in the `notebooks` directory.
 
 Please replace `image-name` with the name you want to give to your Docker image. Also, make sure to update the API endpoint and the pip command with the correct information based on your project's setup.

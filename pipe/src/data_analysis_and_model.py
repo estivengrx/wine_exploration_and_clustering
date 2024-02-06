@@ -171,7 +171,7 @@ def data_exploration_and_analysis(data: pd.DataFrame) -> dict:
     rows_deleted = len(data) - len(remove_outliers(data))
 
     # Calculate percentage of rows deleted due to outliers
-    percentage_rows_deleted = (rows_deleted / len(data)) * 100
+    percentage_rows_deleted = round((rows_deleted / len(data)) * 100, 1)
 
     # Calculate greatest relationships between variables (more than 0.7 in the spearman method)
     greatest_relationships_variables = greatest_relationships(remove_outliers(data))
@@ -198,7 +198,7 @@ def data_exploration_and_analysis(data: pd.DataFrame) -> dict:
     "OD280": "This is a measurement of the wine's absorbance at 280 nm. It is often used as a measure of the total protein concentration in the wine.",
     "Proline": "Proline is an amino acid that has been found to be associated with the color and flavor stability of a wine."
     }
-    
+
 
     # Organize results in a dictionary
     exploration_results = {
@@ -210,7 +210,7 @@ def data_exploration_and_analysis(data: pd.DataFrame) -> dict:
         "Total number of infinite rows, (can be considered null)": inf_rows,
         "Total number of infinite columns, (can be considered null)": inf_columns,
         "Total number of rows deleted due to outliers": rows_deleted,
-        "Percentage of rows deleted due to outliers": percentage_rows_deleted,
+        "Percentage of rows deleted due to outliers": f'{percentage_rows_deleted}%',
         "Greatest relationships between variables, (more than 0.7 in the spearman method)": greatest_relationships_variables,
         "Descriptive statistics of the data": data_description,
         "Statistics and distribution analysis to eliminate outliers": stats_data
