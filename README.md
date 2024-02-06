@@ -37,16 +37,31 @@ docker build -t image-name .
 ```
 4. Run the Docker container with the following command:
 ```bash
-docker run -p 5000:5000 image-name
+docker run -p 8000:8000 image-name
 ```
 In the above commands, replace `image-name` with the name you want to give to your Docker image.
 
 ## Accessing the data through the API
 
-The data extraction API is implemented in `data_extraction_api.py` located in the `pipe/src` directory. To access the data, make a GET request to the following endpoint:
+The data extraction API, data exploration and clustering analysis are implemented in `data_analysis_and_model.py` located in the `pipe/src` directory. To access the data, make a GET request to the following endpoint:
 
 ```
-http://localhost:5000/data
+http://localhost:8000/data
+```
+Here, the data is retrieved from the original URL: [Original dataset](https://storage.googleapis.com/the_public_bucket/wine-clustering.csv)
+
+## Accesing the data exploration
+
+The exploration of the data retrieved from the API in the same code mentioned before will be in the next url:
+```
+http://localhost:8000/data-exploration
+```
+
+## Accesing the clustering model implementation
+
+The implementation of clustering model in the data and the important information about it will be in the next url:
+```
+http://localhost:8000/clustering-analysis
 ```
 
 ## Dependencies
