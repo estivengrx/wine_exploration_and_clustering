@@ -68,7 +68,7 @@ traitlets==5.14.1
 typeguard==4.1.5
 typing_extensions==4.9.0
 tzdata==2023.4
-urllib3==2.1.0
+urllib3==2.6.3
 visions==0.7.5
 wcwidth==0.2.13
 wordcloud==1.9.3
